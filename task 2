@@ -1,0 +1,68 @@
+/*This is an simple python code for traking and mange student grades Effectively */
+class GradeManager:
+    def _init_(self):
+        self.grades = {}
+
+    def add_grade(self, subject, grade):
+        self.grades[subject] = grade
+
+    def calculate_average(self):
+        if not self.grades:
+            return 0
+        return sum(self.grades.values()) / len(self.grades)
+
+    def get_letter_grade(self, average):
+        if average >= 90:
+            return 'A'
+        elif average >= 80:
+            return 'B'
+        elif average >= 70:
+            return 'C'
+        elif average >= 60:
+            return 'D'
+        else:
+            return 'F'
+
+    def display_summary(self):
+        if not self.grades:
+            print("No grades available.")
+            return
+
+        average = self.calculate_average()
+        letter_grade = self.get_letter_grade(average)
+
+        print("\n=== Grade Summary ===")
+        for subject, grade in self.grades.items():
+            print(f"{subject}: {grade}")
+        print(f"Average Grade: {average:.2f}")
+        print(f"Letter Grade: {letter_grade}")
+def main():
+    grade_manager = GradeManager()
+    
+    while True:
+        print("\n1. Add grade")
+        print("2. View summary")
+        print("3. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            subject = input("Enter subject name: ")
+            try:
+                grade = float(input(f"Enter grade for {subject} (0-100): "))
+                if 0 <= grade <= 100:
+                    grade_manager.add_grade(subject, grade)
+                else:
+                    print("Invalid grade. Please enter a value between 0 and 100.")
+            except ValueError:
+                print("Invalid input. Please enter a numeric grade.")
+        elif choice == '2':
+            grade_manager.display_summary()
+        elif choice == '3':
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid choice. Please select a valid option.")
+
+if _name_ == "_main_":
+    main()
