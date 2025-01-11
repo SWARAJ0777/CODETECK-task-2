@@ -24,3 +24,5 @@ Simple Menu Navigation: The user can interact with the system through a basic me
 Programming Language: Python
 Python Concepts: Functions, Classes, Dictionaries, Input/Output, Loops, and Conditional Statements
 User Interface: Command-line interaction for simplicity and ease of use
+output:![output 2](https://github.com/user-attachments/assets/5a5f3bce-8305-4dd4-a0c0-05641e6d4f3c)
+
